@@ -293,10 +293,10 @@
 
                     <div class="mt-8 pt-6 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
                         <span class="text-xs text-slate-500 font-medium">보고서 형식: Web / PDF 요약</span>
-                        <button onclick="openReportModal('career')" class="inline-flex items-center gap-2 bg-career-600 hover:bg-career-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-career-500/20">
+                        <a href="data1.html" class="inline-flex items-center gap-2 bg-career-600 hover:bg-career-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-career-500/20">
                             <span>상세 보고서 보기</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -340,10 +340,10 @@
 
                     <div class="mt-8 pt-6 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
                         <span class="text-xs text-slate-500 font-medium">보고서 형식: Web / 시각화 대시보드</span>
-                        <button onclick="openReportModal('traffic')" class="inline-flex items-center gap-2 bg-traffic-600 hover:bg-traffic-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-emerald-500/20">
+                        <a href="data2.html" class="inline-flex items-center gap-2 bg-traffic-600 hover:bg-traffic-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-emerald-500/20">
                             <span>상세 보고서 보기</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -351,7 +351,7 @@
         </div>
     </section>
 
-    <!-- Additional Public Data Report Section (기상청 카드 -> 음주운전 카드로 변경됨) -->
+    <!-- Additional Public Data Report Section -->
     <section id="additional-reports" class="py-20 bg-slate-50 dark:bg-slate-900/80 border-t border-slate-200/60 dark:border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -367,7 +367,7 @@
             </div>
 
             <div class="max-w-4xl mx-auto">
-                <!-- CARD 3: 경찰청 & 도로교통공단 음주운전 데이터 활용 보고서 -->
+                <!-- CARD 3: 2021-2025년 시도별 음주운전 교통사고 실태 심층 분석 보고서 -->
                 <div class="glass-card rounded-3xl p-6 sm:p-8 card-hover-effect relative flex flex-col justify-between border-t-4 border-t-rose-500 shadow-xl">
                     <div class="space-y-5">
                         <!-- Header badges -->
@@ -381,46 +381,46 @@
                         <!-- Title -->
                         <h3 class="text-2xl font-bold text-slate-900 dark:text-white leading-snug">
                             경찰청 & 도로교통공단 데이터 기반<br>
-                            <span class="text-rose-600 dark:text-rose-400">음주운전 사고 시공간 패턴 및 위험구역 분석 보고서</span>
+                            <span class="text-rose-600 dark:text-rose-400">2021-2025년 시도별 음주운전 교통사고 실태 심층 분석 보고서</span>
                         </h3>
 
                         <!-- Overview Text -->
                         <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                            경찰청 음주운전 단속 건수와 도로교통공단 음주 사고 발생 데이터를 정제하여 연령대별·시간대별·요일별 발생 위험도를 도출하고, 상권 밀집도 결합을 통한 음주운전 단속 최적화 거점을 제시했습니다.
+                            2021년부터 2025년까지 지난 5년간 국내에서 발생한 음주운전 교통사고의 시계열적 변화와 전국 17개 시도별 사고 건수 및 비율의 지역적 양극화 현상을 정밀 분석한 보고서입니다.
                         </p>
 
                         <!-- Key Visual Metric Widgets inside Card -->
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 py-2">
                             <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700">
-                                <p class="text-xs text-slate-500 dark:text-slate-400">수집 표본 레코드</p>
-                                <p class="text-xl font-black text-rose-600 dark:text-rose-400 mt-0.5">120,000+ 건</p>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">분석 대상 기간</p>
+                                <p class="text-xl font-black text-rose-600 dark:text-rose-400 mt-0.5">2021~2025 (5개년)</p>
                             </div>
                             <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700">
-                                <p class="text-xs text-slate-500 dark:text-slate-400">최대 집중 시간대</p>
-                                <p class="text-xl font-black text-rose-600 dark:text-rose-400 mt-0.5">22시 ~ 02시</p>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">2025년 전국 사고 비율</p>
+                                <p class="text-xl font-black text-rose-600 dark:text-rose-400 mt-0.5">5.3% (최저치)</p>
                             </div>
                             <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700">
-                                <p class="text-xs text-slate-500 dark:text-slate-400">단속배치 예방효과</p>
-                                <p class="text-xl font-black text-rose-600 dark:text-rose-400 mt-0.5">사고율 22%↓</p>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">사고건수 감소율 (22→25)</p>
+                                <p class="text-xl font-black text-rose-600 dark:text-rose-400 mt-0.5">31.3%↓</p>
                             </div>
                         </div>
 
                         <!-- Tags -->
                         <div class="flex flex-wrap gap-2 pt-1">
-                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium">#경찰청공공데이터</span>
-                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium">#도로교통공단</span>
-                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium">#음주운전분석</span>
-                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium">#시공간핫스팟</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium">#2021_2025음주운전</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium">#17개시도분석</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium">#지역적양극화</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium">#데이터기반대책</span>
                         </div>
                     </div>
 
                     <!-- Action Button -->
                     <div class="mt-8 pt-6 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                        <span class="text-xs text-slate-500 font-medium">보고서 형식: Web / 시공간 위험 지도 리포트</span>
-                        <button onclick="openReportModal('drunkdriving')" class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-rose-500/20">
+                        <span class="text-xs text-slate-500 font-medium">보고서 형식: Web / 심층 분석 리포트</span>
+                        <a href="data3.html" class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-rose-500/20">
                             <span>상세 보고서 보기</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -946,60 +946,80 @@
                 conclusion: "공간 GIS 및 사고 위험지수(Risk Score) 분석을 통해 보행자 사고 다발 구역 15개소를 선별하고 예산 대비 최대의 사고 예방 효과를 거둘 수 있는 우선순위 정책 가이드를 제공했습니다."
             },
             drunkdriving: {
-                title: "경찰청 & 도로교통공단 데이터 기반 음주운전 사고 시공간 패턴 분석 보고서",
-                subtitle: "음주운전 단속 통계 및 TASS 사고 데이터를 결합한 위험지역 시공간 핫스팟 탐색",
-                badge: "경찰청 & 도로교통공단 데이터 활용",
+                title: "2021-2025년 시도별 음주운전 교통사고 실태 심층 분석 보고서",
+                subtitle: "전국 17개 시도별 5개년 음주운전 사고 추이 및 지역적 양극화 분석",
+                badge: "경찰청 & 도로교통공단 공공데이터",
                 headerBg: "bg-gradient-to-r from-rose-600 to-red-800",
                 metrics: [
-                    { label: "수집 데이터셋", value: "경찰청 단속 & TASS 사고 데이터" },
-                    { label: "분석 주요 변수", value: "혈중알코올농도, 시간대, 상권밀도" },
-                    { label: "분석 표본 규모", value: "전국 120,000+ 건" }
+                    { label: "분석 대상 기간", value: "2021년 ~ 2025년 (5개년)" },
+                    { label: "2025년 전국 사고 비율", value: "5.3% (연속 감소세)" },
+                    { label: "사고 건수 감축률", value: "2022년 대비 31.3%↓" }
                 ],
-                overview: "경찰청 음주운전 단속 통계 데이터와 도로교통공단 TASS의 음주 교통사고 데이터를 결합하여 요일·시간대별, 혈중알코올농도 수치별 사고 심지도와 유흥 상권 밀집지역 간의 시공간 상관관계를 분석한 리포트입니다.",
+                overview: "1. 서론: 본 보고서는 2021년부터 2025년까지 지난 5년간 국내에서 발생한 음주운전 교통사고의 시계열적 변화를 추적하고, 전국 17개 지자체별 사고 발생 양상의 격차를 정밀하게 규명하여 데이터 기반 맞춤형 정책 우선순위를 도출했습니다.",
                 datasets: [
-                    "• <strong>경찰청 음주운전 단속 공공데이터:</strong> 전국 단속 건수, 혈중알코올농도 구간(훈방/정지/취소), 연령대",
-                    "• <strong>도로교통공단 TASS 음주사고 데이터:</strong> 음주운전으로 인한 인명 피해, 도로 유형, 사고 지점 좌표",
-                    "• <strong>지자체 상권 공공데이터:</strong> 유흥/음식점 밀집도 좌표 및 야간 유동인구 지표"
+                    "• <strong>음주운전 사고 건수 (A):</strong> 경찰청 및 도로교통공단 TASS 17개 시도별 공공데이터",
+                    "• <strong>전체 교통사고 건수 (B):</strong> 시도별 총 교통사고 발생 집계 레코드",
+                    "• <strong>음주운전 사고 비율 (A/B, %):</strong> 지자체별 위험 지수 산출 모수 데이터"
                 ],
                 visuals: `
-                    <div class="text-xs text-slate-400 font-medium mb-2">🍷 시간대별 음주운전 사고/단속 집중도 분석</div>
-                    <div class="space-y-3">
-                        <div>
-                            <div class="flex justify-between text-xs mb-1">
-                                <span>심야 시간대 (22시 ~ 02시)</span>
-                                <span class="font-bold text-rose-400">52.3% (최대 집중)</span>
-                            </div>
-                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                                <div class="bg-rose-500 h-full rounded-full" style="width: 52.3%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-1">
-                                <span>새벽 시간대 (02시 ~ 06시)</span>
-                                <span class="font-bold text-amber-400">28.1% (치사율 최고)</span>
-                            </div>
-                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                                <div class="bg-amber-500 h-full rounded-full" style="width: 28.1%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-1">
-                                <span>기타/낮 시간대 (06시 ~ 22시)</span>
-                                <span class="font-bold text-slate-400">19.6%</span>
-                            </div>
-                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                                <div class="bg-slate-600 h-full rounded-full" style="width: 19.6%"></div>
-                            </div>
-                        </div>
+                    <div class="text-xs text-slate-400 font-medium mb-2">📊 연도별 전국 음주운전 사고 통계 추이 (2021-2025)</div>
+                    <div class="overflow-x-auto my-2">
+                        <table class="w-full text-xs text-left text-slate-300 border-collapse border border-slate-700">
+                            <thead class="bg-slate-800 text-slate-200">
+                                <tr>
+                                    <th class="p-2 border border-slate-700">연도</th>
+                                    <th class="p-2 border border-slate-700">사고 비율 (%)</th>
+                                    <th class="p-2 border border-slate-700">음주사고 건수 (A)</th>
+                                    <th class="p-2 border border-slate-700">전체 사고 건수 (B)</th>
+                                    <th class="p-2 border border-slate-700">비고</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-slate-800">
+                                    <td class="p-2 border border-slate-700 font-bold">2021년</td>
+                                    <td class="p-2 border border-slate-700">7.3%</td>
+                                    <td class="p-2 border border-slate-700">14,894건</td>
+                                    <td class="p-2 border border-slate-700">203,130건</td>
+                                    <td class="p-2 border border-slate-700 text-slate-400">분석 기준점</td>
+                                </tr>
+                                <tr class="border-b border-slate-800 bg-rose-950/40">
+                                    <td class="p-2 border border-slate-700 font-bold text-rose-400">2022년</td>
+                                    <td class="p-2 border border-slate-700 font-bold text-rose-400">7.7%</td>
+                                    <td class="p-2 border border-slate-700 font-bold text-rose-400">15,059건</td>
+                                    <td class="p-2 border border-slate-700">196,836건</td>
+                                    <td class="p-2 border border-slate-700 text-rose-400 font-bold">최고점 (Peak)</td>
+                                </tr>
+                                <tr class="border-b border-slate-800">
+                                    <td class="p-2 border border-slate-700 font-bold">2023년</td>
+                                    <td class="p-2 border border-slate-700">6.6%</td>
+                                    <td class="p-2 border border-slate-700">13,042건</td>
+                                    <td class="p-2 border border-slate-700">198,296건</td>
+                                    <td class="p-2 border border-slate-700 text-slate-400">감소세 전환</td>
+                                </tr>
+                                <tr class="border-b border-slate-800">
+                                    <td class="p-2 border border-slate-700 font-bold">2024년</td>
+                                    <td class="p-2 border border-slate-700">5.6%</td>
+                                    <td class="p-2 border border-slate-700">11,037건</td>
+                                    <td class="p-2 border border-slate-700">196,349건</td>
+                                    <td class="p-2 border border-slate-700 text-slate-400">-1.0%p 하락</td>
+                                </tr>
+                                <tr class="border-b border-slate-800 bg-emerald-950/40">
+                                    <td class="p-2 border border-slate-700 font-bold text-emerald-400">2025년</td>
+                                    <td class="p-2 border border-slate-700 font-bold text-emerald-400">5.3%</td>
+                                    <td class="p-2 border border-slate-700 font-bold text-emerald-400">10,351건</td>
+                                    <td class="p-2 border border-slate-700">193,889건</td>
+                                    <td class="p-2 border border-slate-700 text-emerald-400 font-bold">5개년 최저치</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="p-3 bg-slate-800 rounded-xl border border-slate-700 mt-3">
-                        <p class="text-xs text-slate-300">
-                            <i class="fa-solid fa-shield-halved text-rose-400 mr-1"></i>
-                            <strong>혈중알코올농도 특성:</strong> 단속 건수 중 면허 취소 수치(0.08% 이상)가 전체의 <strong>71.4%</strong>를 차지하여 음주운전자 대부분이 만취 상태에서 운전대를 잡는 심각성이 데이터로 검증되었습니다.
-                        </p>
+                    <div class="p-3 bg-slate-800 rounded-xl border border-slate-700 mt-3 text-xs leading-relaxed space-y-1">
+                        <p class="text-rose-400 font-bold"><i class="fa-solid fa-triangle-exclamation mr-1"></i> 지역적 양극화 현상:</p>
+                        <p class="text-slate-300">• <strong>고위험 지역 (11%대):</strong> 인천(2022년 11.1%), 충남(2022년 11.0%)은 전국 평균을 크게 웃도는 고위험군.</p>
+                        <p class="text-slate-300">• <strong>저위험 대도시권:</strong> 서울(4.7%), 대구(4.1%), 대전(4.0%) 등 대도시권은 최저 수준 지속 유지.</p>
                     </div>
                 `,
-                conclusion: "유흥 상권 출구 도로망과 고속도로 진입로 부근의 **시공간 핫스팟 32개 거점**을 도출하였으며, 가변형 거점 단속 시뮬레이션 적용 시 음주사고 예방 효율이 약 **22% 상승**함을 입증했습니다."
+                conclusion: "<strong>결론 및 제언:</strong> 2025년 전국 음주사고 비율이 5.3%로 개선되었으나 충남(7.7%), 울산(7.0%) 등 여전히 사고 비율이 높은 지역에 대해서는 '야간 가변 단속' 및 '음주운전 방지장치' 집중 투입이 필요하며, 대도시권은 모수 효과에 안주하지 말고 절대 사고 건수 감축을 위한 정밀 단속을 병행해야 합니다."
             }
         };
 
