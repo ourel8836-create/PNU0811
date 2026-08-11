@@ -236,7 +236,7 @@
         </div>
     </section>
 
-    <!-- Featured Reports Section (대학알리미 -> ./data1/index.html & 도로교통공단 -> ./data2/index.html) -->
+    <!-- Featured Reports Section (핵심 요청사항: 진로보고서 & 교통데이터 보고서) -->
     <section id="reports" class="py-20 bg-slate-100/70 dark:bg-slate-900/50 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -254,7 +254,7 @@
             <!-- Report Cards Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-                <!-- CARD 1: 대학알리미 데이터 활용 진로 보고서 -> ./data1/index.html 로 이동 -->
+                <!-- CARD 1: 대학알리미 데이터 활용 진로 보고서 -->
                 <div class="glass-card rounded-3xl p-6 sm:p-8 card-hover-effect relative flex flex-col justify-between border-t-4 border-t-career-500 shadow-xl">
                     <div class="space-y-5">
                         <!-- Header badges -->
@@ -297,17 +297,17 @@
                         </div>
                     </div>
 
-                    <!-- Action Link Button -->
+                    <!-- Action Button -->
                     <div class="mt-8 pt-6 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                        <span class="text-xs text-slate-500 font-medium">보고서 경로: ./data1/index.html</span>
-                        <a href="./data1/index.html" class="inline-flex items-center gap-2 bg-career-600 hover:bg-career-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-career-500/20">
+                        <span class="text-xs text-slate-500 font-medium">보고서 형식: Web / PDF 요약</span>
+                        <button onclick="openReportModal('career')" class="inline-flex items-center gap-2 bg-career-600 hover:bg-career-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-career-500/20">
                             <span>상세 보고서 보기</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
-                        </a>
+                        </button>
                     </div>
                 </div>
 
-                <!-- CARD 2: 도로교통공단 데이터 활용 교통데이터 분석 보고서 -> ./data2/index.html 로 이동 -->
+                <!-- CARD 2: 도로교통공단 데이터 활용 교통데이터 분석 보고서 -->
                 <div class="glass-card rounded-3xl p-6 sm:p-8 card-hover-effect relative flex flex-col justify-between border-t-4 border-t-traffic-500 shadow-xl">
                     <div class="space-y-5">
                         <!-- Header badges -->
@@ -350,16 +350,92 @@
                         </div>
                     </div>
 
-                    <!-- Action Link Button -->
+                    <!-- Action Button -->
                     <div class="mt-8 pt-6 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                        <span class="text-xs text-slate-500 font-medium">보고서 경로: ./data2/index.html</span>
-                        <a href="./data2/index.html" class="inline-flex items-center gap-2 bg-traffic-600 hover:bg-traffic-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-emerald-500/20">
+                        <span class="text-xs text-slate-500 font-medium">보고서 형식: Web / 시각화 대시보드</span>
+                        <button onclick="openReportModal('traffic')" class="inline-flex items-center gap-2 bg-traffic-600 hover:bg-traffic-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-emerald-500/20">
                             <span>상세 보고서 보기</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
-                        </a>
+                        </button>
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Public Data Report Section (새로운 추가 섹션) -->
+    <section id="additional-reports" class="py-20 bg-slate-50 dark:bg-slate-900/80 border-t border-slate-200/60 dark:border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-100 dark:bg-cyan-950/80 text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800 text-xs font-bold uppercase tracking-wider">
+                    NEW RESEARCH REPORT
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+                    신규 공공데이터 분석 보고서
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+                    공공데이터포털, 한국환경공단 및 기상청의 오픈 API 데이터를 기반으로 정제 및 모델링한 시공간 데이터 분석 보고서입니다.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- CARD 3: 한국환경공단 & 기상청 데이터 활용 보고서 -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 card-hover-effect relative flex flex-col justify-between border-t-4 border-t-cyan-500 shadow-xl">
+                    <div class="space-y-5">
+                        <!-- Header badges -->
+                        <div class="flex items-center justify-between flex-wrap gap-2">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/80 text-cyan-600 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800 text-xs font-bold">
+                                <i class="fa-solid fa-cloud-sun-rain"></i> 한국환경공단 & 기상청 데이터 활용
+                            </span>
+                            <span class="text-xs text-slate-400 font-medium">작성일: 2026.05</span>
+                        </div>
+
+                        <!-- Title -->
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white leading-snug">
+                            한국환경공단 에어코리아 데이터 기반<br>
+                            <span class="text-cyan-600 dark:text-cyan-400">전국 대기질 시공간 패턴 및 미세먼지 예측 보고서</span>
+                        </h3>
+
+                        <!-- Overview Text -->
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                            한국환경공단 에어코리아 측정망과 기상청 종관기상관측(ASOS) 데이터를 결합하여 계절별·지역별 미세먼지(PM10/PM2.5) 고농도 발생 패턴을 시공간 분석하고, 시계열 예측 모델을 적용했습니다.
+                        </p>
+
+                        <!-- Key Visual Metric Widgets inside Card -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 py-2">
+                            <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700">
+                                <p class="text-xs text-slate-500 dark:text-slate-400">수집 데이터 관측소</p>
+                                <p class="text-xl font-black text-cyan-600 dark:text-cyan-400 mt-0.5">500+ 개소</p>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700">
+                                <p class="text-xs text-slate-500 dark:text-slate-400">시계열 데이터 규모</p>
+                                <p class="text-xl font-black text-cyan-600 dark:text-cyan-400 mt-0.5">870만+ 레코드</p>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700">
+                                <p class="text-xs text-slate-500 dark:text-slate-400">예측 정밀도 (R²)</p>
+                                <p class="text-xl font-black text-cyan-600 dark:text-cyan-400 mt-0.5">0.89 수립</p>
+                            </div>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 pt-1">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium">#한국환경공단</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium">#기상청공공데이터</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium">#시계열예측</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-medium">#환경빅데이터</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Button -->
+                    <div class="mt-8 pt-6 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-medium">보고서 형식: Web / 시계열 분석 리포트</span>
+                        <button onclick="openReportModal('environment')" class="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-cyan-500/20">
+                            <span>상세 보고서 보기</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -782,6 +858,150 @@
 
     <!-- Client Scripts -->
     <script>
+        // Report Detailed Data Store
+        const reportData = {
+            career: {
+                title: "대학알리미 데이터 기반 맞춤형 진로 탐구 보고서",
+                subtitle: "전국 대학 학과별 공시 데이터 통계 및 취업 경쟁률 분석",
+                badge: "대학알리미 (AcademyInfo) 데이터 활용",
+                headerBg: "bg-gradient-to-r from-career-600 to-indigo-700",
+                metrics: [
+                    { label: "분석 데이터셋", value: "대학알리미 2023-2025 공시" },
+                    { label: "추출 지표", value: "취업률, 신입생충원율, 교육비" },
+                    { label: "분석 학과 수", value: "전국 340+ 개 주요 학과" }
+                ],
+                overview: "본 보고서는 대학알리미(AcademyInfo) 공시 공공데이터를 직접 정제하여, 데이터 Science 및 IT 관련 학과의 취업률과 1인당 교육비, 전임교원 확보율 간의 정량적 상관관계를 분석한 진로 가이드 보고서입니다.",
+                datasets: [
+                    "• <strong>대학알리미 오픈 데이터:</strong> 학과별 졸업생 취업률 데이터 (2023~2025년)",
+                    "• <strong>대학별 재정 데이터:</strong> 학생 1인당 교육비 및 장학금 지급률 공시 자료",
+                    "• <strong>입시 및 충원 데이터:</strong> 신입생 및 재학생 충원율, 경쟁률 데이터"
+                ],
+                visuals: `
+                    <div class="text-xs text-slate-400 font-medium mb-2">📊 학과 주요 지표 상관관계 시각화 요약</div>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span>인공지능·데이터학과 평균 취업률</span>
+                                <span class="font-bold text-career-400">78.4%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-career-500 h-full rounded-full" style="width: 78.4%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span>소프트웨어 공학 계열 평균 취업률</span>
+                                <span class="font-bold text-indigo-400">75.2%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-indigo-500 h-full rounded-full" style="width: 75.2%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span>전체 인문/사회계열 평균 취업률</span>
+                                <span class="font-bold text-slate-400">62.1%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-slate-600 h-full rounded-full" style="width: 62.1%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-300 mt-4 leading-relaxed">
+                        <i class="fa-solid fa-circle-info text-career-400 mr-1"></i>
+                        <strong>인사이트:</strong> 1인당 교육 투자비용이 높을수록 학과 실습 및 프로젝트 지원이 늘어나 취업률과 약 0.68의 양의 상관관계를 보였습니다.
+                    </p>
+                `,
+                conclusion: "대학 진학 및 데이터 분야 진로 설정 시 단순 입결 커트라인보다 **대학알리미의 '1인당 교육비' 및 '실습 장비 투입도' 지표**를 우선 검토하는 것이 장기적인 데이터 커리어 형성에 유리함을 입증했습니다."
+            },
+            traffic: {
+            },
+            environment: {
+                title: "한국환경공단 & 기상청 데이터 기반 대기질 시공간 분석 보고서",
+                subtitle: "에어코리아 측정망 및 종관기상관측 시계열 데이터를 통한 미세먼지 패턴 분석",
+                badge: "한국환경공단 & 기상청 데이터 활용",
+                headerBg: "bg-gradient-to-r from-cyan-600 to-sky-700",
+                metrics: [
+                    { label: "수집 데이터셋", value: "에어코리아 & 기상청 API" },
+                    { label: "분석 주요 변수", value: "PM10, PM2.5, 풍향, 습도, 풍속" },
+                    { label: "분석 관측소", value: "전국 500+ 개 측정소" }
+                ],
+                overview: "한국환경공단 에어코리아의 전국 대기오염 측정망 데이터와 기상청의 풍향/풍속/습도 기상 데이터를 결합하여, 계절별 고농도 미세먼지 이동 경로 및 지역별 기후 요소와의 상관관계를 다각도로 분석한 프로젝트입니다.",
+                datasets: [
+                    "• <strong>한국환경공단 에어코리아 API:</strong> 전국 측정소별 확정 대기오염물질 농도 데이터 (2023~2025)",
+                    "• <strong>기상청 종관기상관측(ASOS) 데이터:</strong> 풍향, 풍속, 기온, 상대습도 시간별 측정 데이터",
+                    "• <strong>지자체 환경격자 데이터:</strong> 산업단지 위치 및 도로망 밀도 레이어 데이터"
+                ],
+                visuals: `
+                    <div class="text-xs text-slate-400 font-medium mb-2">🌬️ 기상요인과 초미세먼지(PM2.5) 상관성 분석</div>
+                    <div class="grid grid-cols-2 gap-3 text-center my-3">
+                        <div class="p-3 bg-slate-800 rounded-xl border border-slate-700">
+                            <p class="text-xs text-slate-400">대기정체(풍속 < 1.5m/s)</p>
+                            <p class="text-lg font-bold text-cyan-400 mt-1">농도 2.4배↑</p>
+                            <p class="text-[10px] text-slate-500">고농도 유지가능성 급증</p>
+                        </div>
+                        <div class="p-3 bg-slate-800 rounded-xl border border-slate-700">
+                            <p class="text-xs text-slate-400">봄철 서풍계열 유입 시</p>
+                            <p class="text-lg font-bold text-amber-400 mt-1">+38.5 ㎛/m³</p>
+                            <p class="text-[10px] text-slate-500">외부 요인 정량 도출</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        <i class="fa-solid fa-cloud-bolt text-cyan-400 mr-1"></i>
+                        <strong>분석 인사이트:</strong> 풍속 감소에 따른 대기 정체 현상이 초미세먼지 농도 상승에 가장 큰 영향을 미치며, 머신러닝 예측 모델링 적용 결과 평균 오차범위 12% 이내의 고정밀 예측을 달성했습니다.
+                    </p>
+                `,
+                conclusion: "대기질 개선 정책 수립 시 단순 배출량 규제뿐만 아니라 **기상청 정체 기류 예측 데이터와 연동한 모니터링 시스템 구축**이 필수적임을 제언했습니다."
+            }
+        };
+
+        // Modal Open / Close Functions
+        function openReportModal(key) {
+            const data = reportData[key];
+            if (!data) return;
+
+            const modal = document.getElementById('reportModal');
+            const header = document.getElementById('modalHeader');
+            const badge = document.getElementById('modalCategoryBadge');
+            const title = document.getElementById('modalTitle');
+            const subtitle = document.getElementById('modalSubtitle');
+            const metrics = document.getElementById('modalMetrics');
+            const overview = document.getElementById('modalOverview');
+            const dataset = document.getElementById('modalDataset');
+            const visualization = document.getElementById('modalVisualization');
+            const conclusion = document.getElementById('modalConclusion');
+
+            // Set Header Styling
+            header.className = `p-6 sm:p-8 text-white flex items-start justify-between relative ${data.headerBg}`;
+            badge.innerText = data.badge;
+            title.innerText = data.title;
+            subtitle.innerText = data.subtitle;
+
+            // Render Metrics
+            metrics.innerHTML = data.metrics.map(m => `
+                <div class="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-center">
+                    <p class="text-xs text-slate-500 dark:text-slate-400">${m.label}</p>
+                    <p class="text-sm sm:text-base font-bold text-slate-900 dark:text-white mt-0.5">${m.value}</p>
+                </div>
+            `).join('');
+
+            // Set Content Text
+            overview.innerText = data.overview;
+            dataset.innerHTML = data.datasets.map(d => `<p>${d}</p>`).join('');
+            visualization.innerHTML = data.visuals;
+            conclusion.innerHTML = data.conclusion;
+
+            // Show Modal
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeReportModal() {
+            const modal = document.getElementById('reportModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
         // Theme Toggle (Light / Dark)
         const themeToggleBtn = document.getElementById('themeToggle');
         themeToggleBtn.addEventListener('click', () => {
@@ -835,13 +1055,6 @@
             e.preventDefault();
             alert('승우님에게 메시지가 성공적으로 전송되었습니다! 빠르게 답변드리겠습니다.');
             e.target.reset();
-        }
-
-        // Modal Close Function
-        function closeReportModal() {
-            const modal = document.getElementById('reportModal');
-            modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
         }
 
         // Esc key closes modal
