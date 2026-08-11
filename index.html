@@ -84,6 +84,10 @@
 
             <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="../index.html" class="text-brand-600 dark:text-brand-400 font-bold hover:text-brand-500 transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-house"></i>
+                    <span>홈</span>
+                </a>
                 <a href="#about" class="hover:text-brand-500 transition-colors">소개</a>
                 <a href="#reports" class="hover:text-brand-500 transition-colors flex items-center gap-1.5">
                     <span>대표 보고서</span>
@@ -96,6 +100,10 @@
 
             <!-- Actions -->
             <div class="flex items-center gap-3">
+                <a href="../index.html" class="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all border border-slate-200/80 dark:border-slate-700">
+                    <i class="fa-solid fa-house text-brand-500"></i>
+                    <span>홈으로</span>
+                </a>
                 <button id="themeToggle" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors" aria-label="다크 모드 토글">
                     <i class="fa-solid fa-moon text-lg dark:hidden"></i>
                     <i class="fa-solid fa-sun text-lg hidden dark:block"></i>
@@ -114,6 +122,10 @@
         <!-- Mobile Menu Dropdown -->
         <div id="mobileMenu" class="hidden md:hidden px-4 pt-2 pb-4 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95">
             <div class="flex flex-col space-y-3 font-medium text-sm">
+                <a href="../index.html" class="mobile-nav-link py-2 text-brand-600 dark:text-brand-400 font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-house"></i>
+                    <span>홈으로 이동 (../index.html)</span>
+                </a>
                 <a href="#about" class="mobile-nav-link py-2 hover:text-brand-500">소개</a>
                 <a href="#reports" class="mobile-nav-link py-2 hover:text-brand-500">대표 보고서</a>
                 <a href="#activities" class="mobile-nav-link py-2 hover:text-brand-500">활동 내역</a>
@@ -224,7 +236,7 @@
         </div>
     </section>
 
-    <!-- Featured Reports Section (핵심 요청사항: 진로보고서 & 교통데이터 보고서) -->
+    <!-- Featured Reports Section (대학알리미 -> ./data1/index.html & 도로교통공단 -> ./data2/index.html) -->
     <section id="reports" class="py-20 bg-slate-100/70 dark:bg-slate-900/50 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -242,7 +254,7 @@
             <!-- Report Cards Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-                <!-- CARD 1: 대학알리미 데이터 활용 진로 보고서 -->
+                <!-- CARD 1: 대학알리미 데이터 활용 진로 보고서 -> ./data1/index.html 로 이동 -->
                 <div class="glass-card rounded-3xl p-6 sm:p-8 card-hover-effect relative flex flex-col justify-between border-t-4 border-t-career-500 shadow-xl">
                     <div class="space-y-5">
                         <!-- Header badges -->
@@ -285,17 +297,17 @@
                         </div>
                     </div>
 
-                    <!-- Action Button -->
+                    <!-- Action Link Button -->
                     <div class="mt-8 pt-6 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                        <span class="text-xs text-slate-500 font-medium">보고서 형식: Web / PDF 요약</span>
-                        <button onclick="openReportModal('career')" class="inline-flex items-center gap-2 bg-career-600 hover:bg-career-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-career-500/20">
+                        <span class="text-xs text-slate-500 font-medium">보고서 경로: ./data1/index.html</span>
+                        <a href="./data1/index.html" class="inline-flex items-center gap-2 bg-career-600 hover:bg-career-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-career-500/20">
                             <span>상세 보고서 보기</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>
 
-                <!-- CARD 2: 도로교통공단 데이터 활용 교통데이터 분석 보고서 -->
+                <!-- CARD 2: 도로교통공단 데이터 활용 교통데이터 분석 보고서 -> ./data2/index.html 로 이동 -->
                 <div class="glass-card rounded-3xl p-6 sm:p-8 card-hover-effect relative flex flex-col justify-between border-t-4 border-t-traffic-500 shadow-xl">
                     <div class="space-y-5">
                         <!-- Header badges -->
@@ -338,13 +350,13 @@
                         </div>
                     </div>
 
-                    <!-- Action Button -->
+                    <!-- Action Link Button -->
                     <div class="mt-8 pt-6 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                        <span class="text-xs text-slate-500 font-medium">보고서 형식: Web / 시각화 대시보드</span>
-                        <button onclick="openReportModal('traffic')" class="inline-flex items-center gap-2 bg-traffic-600 hover:bg-traffic-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-emerald-500/20">
+                        <span class="text-xs text-slate-500 font-medium">보고서 경로: ./data2/index.html</span>
+                        <a href="./data2/index.html" class="inline-flex items-center gap-2 bg-traffic-600 hover:bg-traffic-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-emerald-500/20">
                             <span>상세 보고서 보기</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -770,148 +782,6 @@
 
     <!-- Client Scripts -->
     <script>
-        // Report Detailed Data Store
-        const reportData = {
-            career: {
-                title: "대학알리미 데이터 기반 맞춤형 진로 탐구 보고서",
-                subtitle: "전국 대학 학과별 공시 데이터 통계 및 취업 경쟁률 분석",
-                badge: "대학알리미 (AcademyInfo) 데이터 활용",
-                headerBg: "bg-gradient-to-r from-career-600 to-indigo-700",
-                metrics: [
-                    { label: "분석 데이터셋", value: "대학알리미 2023-2025 공시" },
-                    { label: "추출 지표", value: "취업률, 신입생충원율, 교육비" },
-                    { label: "분석 학과 수", value: "전국 340+ 개 주요 학과" }
-                ],
-                overview: "본 보고서는 대학알리미(AcademyInfo) 공시 공공데이터를 직접 정제하여, 데이터 Science 및 IT 관련 학과의 취업률과 1인당 교육비, 전임교원 확보율 간의 정량적 상관관계를 분석한 진로 가이드 보고서입니다.",
-                datasets: [
-                    "• <strong>대학알리미 오픈 데이터:</strong> 학과별 졸업생 취업률 데이터 (2023~2025년)",
-                    "• <strong>대학별 재정 데이터:</strong> 학생 1인당 교육비 및 장학금 지급률 공시 자료",
-                    "• <strong>입시 및 충원 데이터:</strong> 신입생 및 재학생 충원율, 경쟁률 데이터"
-                ],
-                visuals: `
-                    <div class="text-xs text-slate-400 font-medium mb-2">📊 학과 주요 지표 상관관계 시각화 요약</div>
-                    <div class="space-y-3">
-                        <div>
-                            <div class="flex justify-between text-xs mb-1">
-                                <span>인공지능·데이터학과 평균 취업률</span>
-                                <span class="font-bold text-career-400">78.4%</span>
-                            </div>
-                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                                <div class="bg-career-500 h-full rounded-full" style="width: 78.4%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-1">
-                                <span>소프트웨어 공학 계열 평균 취업률</span>
-                                <span class="font-bold text-indigo-400">75.2%</span>
-                            </div>
-                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                                <div class="bg-indigo-500 h-full rounded-full" style="width: 75.2%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-1">
-                                <span>전체 인문/사회계열 평균 취업률</span>
-                                <span class="font-bold text-slate-400">62.1%</span>
-                            </div>
-                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                                <div class="bg-slate-600 h-full rounded-full" style="width: 62.1%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-xs text-slate-300 mt-4 leading-relaxed">
-                        <i class="fa-solid fa-circle-info text-career-400 mr-1"></i>
-                        <strong>인사이트:</strong> 1인당 교육 투자비용이 높을수록 학과 실습 및 프로젝트 지원이 늘어나 취업률과 약 0.68의 양의 상관관계를 보였습니다.
-                    </p>
-                `,
-                conclusion: "대학 진학 및 데이터 분야 진로 설정 시 단순 입결 커트라인보다 **대학알리미의 '1인당 교육비' 및 '실습 장비 투입도' 지표**를 우선 검토하는 것이 장기적인 데이터 커리어 형성에 유리함을 입증했습니다."
-            },
-            traffic: {
-                title: "도로교통공단 데이터 기반 도시 보행자 교통사고 취약지역 분석",
-                subtitle: "TASS 공공데이터 시공간 분석을 통한 사고 위험구역 및 개선안 도출",
-                badge: "도로교통공단 (TAAS) 데이터 활용",
-                headerBg: "bg-gradient-to-r from-traffic-600 to-teal-700",
-                metrics: [
-                    { label: "분석 사고 데이터", value: "52,400+ 건 (2023-2025)" },
-                    { label: "분석 공통 변수", value: "시간대, 날씨, 도로형태, 연령" },
-                    { label: "안전 제안 구역", value: "시내 주요 위험 스팟 14곳" }
-                ],
-                overview: "도로교통공단 교통사고분석시스템(TAAS)의 마이크로데이터를 수집하여 보행자 교통사고 발생 밀집 지역을 공간 클러스터링(DBSCAN) 기법으로 탐지하고 사고 유형별 위험 요인을 정량적으로 분석했습니다.",
-                datasets: [
-                    "• <strong>도로교통공단 TAAS 데이터:</strong> 보행자 사고 상세 데이터셋 (위경도 좌표 포함)",
-                    "• <strong>기상청 날씨 데이터:</strong> 강수량, 야간 조도 상태 결합 데이터",
-                    "• <strong>지자체 도로망 공간 데이터:</strong> 횡단보도 설치 현황 및 신호등 주기 데이터"
-                ],
-                visuals: `
-                    <div class="text-xs text-slate-400 font-medium mb-2">🚗 야간/우천 시 보행자 사고 위험도 패턴</div>
-                    <div class="grid grid-cols-2 gap-3 text-center my-3">
-                        <div class="p-3 bg-slate-800 rounded-xl border border-slate-700">
-                            <p class="text-xs text-slate-400">18시 ~ 22시 야간 사고율</p>
-                            <p class="text-lg font-bold text-rose-400 mt-1">42.8%</p>
-                            <p class="text-[10px] text-slate-500">전체 사고 중 최다 비중</p>
-                        </div>
-                        <div class="p-3 bg-slate-800 rounded-xl border border-slate-700">
-                            <p class="text-xs text-slate-400">우천 시 치사율 증가폭</p>
-                            <p class="text-lg font-bold text-emerald-400 mt-1">1.85 배</p>
-                            <p class="text-[10px] text-slate-500">제동거리 증가 원인</p>
-                        </div>
-                    </div>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <i class="fa-solid fa-location-crosshairs text-emerald-400 mr-1"></i>
-                        <strong>공간 분석 결과:</strong> 신호등 없는 단로부 횡단보도 주변 50m 이내에서 야간 스쿨존/주거지 사고가 집중 형성됨을 확인했습니다.
-                    </p>
-                `,
-                conclusion: "야간 보행자 사고 취약구역 14곳에 **스마트 LED 바닥 신호등 및 고조도 투광기 우선 설치**를 제안하였으며, 시행 시 보행자 사고 위험률을 최대 18% 감소시킬 것으로 기대됩니다."
-            }
-        };
-
-        // Modal Open / Close Functions
-        function openReportModal(key) {
-            const data = reportData[key];
-            if (!data) return;
-
-            const modal = document.getElementById('reportModal');
-            const header = document.getElementById('modalHeader');
-            const badge = document.getElementById('modalCategoryBadge');
-            const title = document.getElementById('modalTitle');
-            const subtitle = document.getElementById('modalSubtitle');
-            const metrics = document.getElementById('modalMetrics');
-            const overview = document.getElementById('modalOverview');
-            const dataset = document.getElementById('modalDataset');
-            const visualization = document.getElementById('modalVisualization');
-            const conclusion = document.getElementById('modalConclusion');
-
-            // Set Header Styling
-            header.className = `p-6 sm:p-8 text-white flex items-start justify-between relative ${data.headerBg}`;
-            badge.innerText = data.badge;
-            title.innerText = data.title;
-            subtitle.innerText = data.subtitle;
-
-            // Render Metrics
-            metrics.innerHTML = data.metrics.map(m => `
-                <div class="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-center">
-                    <p class="text-xs text-slate-500 dark:text-slate-400">${m.label}</p>
-                    <p class="text-sm sm:text-base font-bold text-slate-900 dark:text-white mt-0.5">${m.value}</p>
-                </div>
-            `).join('');
-
-            // Set Content Text
-            overview.innerText = data.overview;
-            dataset.innerHTML = data.datasets.map(d => `<p>${d}</p>`).join('');
-            visualization.innerHTML = data.visuals;
-            conclusion.innerHTML = data.conclusion;
-
-            // Show Modal
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeReportModal() {
-            const modal = document.getElementById('reportModal');
-            modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
         // Theme Toggle (Light / Dark)
         const themeToggleBtn = document.getElementById('themeToggle');
         themeToggleBtn.addEventListener('click', () => {
@@ -965,6 +835,13 @@
             e.preventDefault();
             alert('승우님에게 메시지가 성공적으로 전송되었습니다! 빠르게 답변드리겠습니다.');
             e.target.reset();
+        }
+
+        // Modal Close Function
+        function closeReportModal() {
+            const modal = document.getElementById('reportModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
         }
 
         // Esc key closes modal
