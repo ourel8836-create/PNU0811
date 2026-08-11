@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부산지역 일반 대학교 주요 지표 및 경쟁력 분석 보고서 (2024-2026)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts Inter & Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            500: '#334e68',
+                            800: '#102a43',
+                            900: '#0b1b2b',
+                        },
+                        brand: {
+                            blue: '#1d4ed8',
+                            indigo: '#4f46e5',
+                            teal: '#0d9488',
+                            amber: '#d97706',
+                            rose: '#e11d48'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #e2e8f0; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-slate-900 text-white shadow-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Left Title & Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-blue-600 rounded-lg text-white">
+                        <i class="fa-solid fa-chart-line text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-base sm:text-lg font-bold leading-tight">부산지역 대학 경쟁력 보고서</h1>
+                        <p class="text-[11px] sm:text-xs text-slate-400">2024-2026 중기 교육지표 종합 분석</p>
+                    </div>
+                </div>
+
+                <!-- Right Action Navigation & Home Button -->
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    <!-- Home Button -->
+                    <a href="../index.html" class="bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-semibold py-2 px-3 rounded-lg transition-all border border-slate-700 flex items-center shadow-sm">
+                        <i class="fa-solid fa-house me-1.5 text-blue-400"></i>
+                        <span>홈으로</span>
+                    </a>
+
+                    <span class="hidden lg:inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-900/80 text-blue-200 border border-blue-700">
+                        <i class="fa-regular fa-clock me-1.5"></i> 기준연도: 2025 (14개교)
+                    </span>
+                    
+                    <button onclick="scrollToSection('explorer')" class="hidden md:flex bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold py-2 px-3 rounded-lg transition-all shadow-sm items-center">
+                        <i class="fa-solid fa-magnifying-glass me-1.5"></i>
+                        <span>대학별 데이터 탐색</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+        <!-- Hero & Overview Header -->
+        <section class="bg-gradient-to-r from-slate-900 via-indigo-950 to-blue-950 rounded-2xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
+                <i class="fa-solid fa-graduation-cap text-[280px]"></i>
+            </div>
+            <div class="relative z-10 max-w-3xl">
+                <div class="inline-block px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-semibold uppercase tracking-wider mb-3 border border-blue-400/30">
+                    Busan Higher Education Report
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+                    부산지역 일반 대학교 주요 지표 및 경쟁력 분석 보고서
+                </h2>
+                <p class="mt-3 text-slate-300 text-sm sm:text-base leading-relaxed">
+                    본 보고서는 부산 소재 14개 일반 대학의 핵심 교육 지표(입학정원, 재학생, 전임교원, 신입생 경쟁률, 취업률)를 다차원적으로 분석하여 지역 고등교육 생태계의 구조적 특징과 경쟁 우위를 제시합니다.
+                </p>
+                <div class="mt-4 text-xs text-slate-400 flex flex-wrap gap-x-4 gap-y-1">
+                    <span><i class="fa-solid fa-circle-info text-blue-400 me-1"></i> 분석 대상: 14개교 (인제대 제2캠퍼스 제외)</span>
+                    <span><i class="fa-solid fa-calendar me-1"></i> 데이터 유지 기간: 2024~2026년 중기 지표</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Executive Summary Cards -->
+        <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div class="glass-card rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex items-center justify-between text-slate-500 text-xs font-medium">
+                    <span>총 입학정원</span>
+                    <i class="fa-solid fa-user-plus text-blue-500 text-base"></i>
+                </div>
+                <div class="mt-2 text-2xl font-bold text-slate-900">28,745 <span class="text-xs font-normal text-slate-500">명</span></div>
+                <div class="mt-1 text-[11px] text-slate-500">교당 평균 2,053명</div>
+            </div>
+
+            <div class="glass-card rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex items-center justify-between text-slate-500 text-xs font-medium">
+                    <span>총 재학생 수</span>
+                    <i class="fa-solid fa-users text-indigo-500 text-base"></i>
+                </div>
+                <div class="mt-2 text-2xl font-bold text-slate-900">125,606 <span class="text-xs font-normal text-slate-500">명</span></div>
+                <div class="mt-1 text-[11px] text-slate-500">부산대/동아대 약 30%</div>
+            </div>
+
+            <div class="glass-card rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex items-center justify-between text-slate-500 text-xs font-medium">
+                    <span>평균 경쟁률</span>
+                    <i class="fa-solid fa-bullseye text-teal-500 text-base"></i>
+                </div>
+                <div class="mt-2 text-2xl font-bold text-slate-900">6.19 : 1</div>
+                <div class="mt-1 text-[11px] text-teal-600 font-medium">최고 9.0:1 (부산대)</div>
+            </div>
+
+            <div class="glass-card rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex items-center justify-between text-slate-500 text-xs font-medium">
+                    <span>평균 취업률</span>
+                    <i class="fa-solid fa-briefcase text-amber-500 text-base"></i>
+                </div>
+                <div class="mt-2 text-2xl font-bold text-slate-900">60.91 %</div>
+                <div class="mt-1 text-[11px] text-amber-600 font-medium">최고 71.3% (한국해양대)</div>
+            </div>
+
+            <div class="glass-card rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow col-span-2 md:col-span-1">
+                <div class="flex items-center justify-between text-slate-500 text-xs font-medium">
+                    <span>교원 1인당 학생</span>
+                    <i class="fa-solid fa-chalkboard-user text-rose-500 text-base"></i>
+                </div>
+                <div class="mt-2 text-2xl font-bold text-slate-900">12.95 ~ 34.6명</div>
+                <div class="mt-1 text-[11px] text-rose-600 font-medium">최상위: 고신대(12.95명)</div>
+            </div>
+        </section>
+
+        <!-- Section 1: University Scale & Educational Environment -->
+        <section class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
+                <div>
+                    <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">SECTION 01</span>
+                    <h3 class="text-xl font-bold text-slate-800">대학 규모 및 교육 여건 분석</h3>
+                </div>
+                <span class="text-xs text-slate-500">입학정원 규모별 classification 및 전임교원 밀도</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- University Scale Classification Cards -->
+                <div class="lg:col-span-1 space-y-4">
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-rose-100 text-rose-800 rounded-md text-xs font-bold">대형 대학 (4개교)</span>
+                            <span class="text-xs text-slate-500">정원 3,000명 이상</span>
+                        </div>
+                        <ul class="space-y-2 text-xs">
+                            <li class="flex justify-between items-center p-2 bg-slate-50 rounded">
+                                <span class="font-semibold text-slate-800">부산대</span>
+                                <span class="text-slate-600">정원: 4,498명 | 교원당: <strong class="text-blue-600">13.80명</strong></span>
+                            </li>
+                            <li class="flex justify-between items-center p-2 bg-slate-50 rounded">
+                                <span class="font-semibold text-slate-800">동아대</span>
+                                <span class="text-slate-600">정원: 4,159명 | 교원당: 24.66명</span>
+                            </li>
+                            <li class="flex justify-between items-center p-2 bg-slate-50 rounded">
+                                <span class="font-semibold text-slate-800">동의대</span>
+                                <span class="text-slate-600">정원: 3,589명 | 교원당: 26.00명</span>
+                            </li>
+                            <li class="flex justify-between items-center p-2 bg-slate-50 rounded">
+                                <span class="font-semibold text-slate-800">국립부경대</span>
+                                <span class="text-slate-600">정원: 3,338명 | 교원당: 24.02명</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-amber-100 text-amber-800 rounded-md text-xs font-bold">중형 대학 (6개교)</span>
+                            <span class="text-xs text-slate-500">정원 1,000 ~ 3,000 미만</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-2">
+                            경성대(2,765명), 동서대(2,094명), 신라대(1,640명), 부산외대(1,470명), 동명대(1,424명), 국립한국해양대(1,372명)
+                        </p>
+                        <div class="text-[11px] text-amber-700 bg-amber-50 p-2 rounded">
+                            <i class="fa-solid fa-circle-info me-1"></i> 국립한국해양대가 전임교원 1인당 학생 수 22.43명으로 중형 중 우수
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-teal-100 text-teal-800 rounded-md text-xs font-bold">소형 대학 (4개교)</span>
+                            <span class="text-xs text-slate-500">정원 1,000명 미만</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-2">
+                            고신대(753명), 부산가톨릭대(705명), 영산대(해운대)(625명), 부산교육대(313명)
+                        </p>
+                        <div class="text-[11px] text-teal-700 bg-teal-50 p-2 rounded">
+                            <i class="fa-solid fa-check me-1"></i> <strong>고신대(12.95명)</strong> 분석 대상 중 가장 밀도 높은 교수진 확보
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scale & Faculty Chart -->
+                <div class="lg:col-span-2 bg-white p-5 sm:p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-base font-bold text-slate-800"><i class="fa-solid fa-chart-column text-blue-600 me-2"></i>대학별 입학정원 및 전임교원 1인당 학생 수</h4>
+                            <span class="text-xs text-slate-400">2025년 기준</span>
+                        </div>
+                        <div class="h-72 sm:h-80 w-full">
+                            <canvas id="scaleFacultyChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600">
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <strong class="text-slate-800 block mb-1"><i class="fa-solid fa-user-graduate text-indigo-500 me-1"></i>재학생 비중 특이사항</strong>
+                            입학정원 대비 재학생 비중 상위: <strong>부산가톨릭대(4.89배)</strong>, 영산대(4.76배), 국립한국해양대(4.61배)로 중소형 특성화 대학의 학생 유지력 탁월.
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <strong class="text-slate-800 block mb-1"><i class="fa-solid fa-shield-halved text-blue-500 me-1"></i>대형 대학 거점 효과</strong>
+                            부산대(19,900명)와 동아대(17,634명) 2개교가 부산 전체 대학 재학생의 약 <strong>30%</strong> 집중.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Data Inversion & Competitiveness -->
+        <section class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
+                <div>
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">SECTION 02</span>
+                    <h3 class="text-xl font-bold text-slate-800">대학 경쟁력 및 '성과 역전 현상' 분석</h3>
+                </div>
+                <span class="text-xs text-slate-500">신입생 경쟁률 vs 취업률 상관관계 데이터 분석</span>
+            </div>
+
+            <!-- Focus Insight Banner on Data Inversion -->
+            <div class="bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-rose-500/10 border border-amber-200 rounded-xl p-5 sm:p-6">
+                <div class="flex items-start space-x-3">
+                    <div class="p-2.5 bg-amber-500 text-white rounded-xl shadow-sm mt-0.5">
+                        <i class="fa-solid fa-arrows-rotate text-xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="text-base font-bold text-slate-900">핵심 관전 포인트: 신입생 선호도와 취업 성과의 '역전 현상 (Data Inversion)'</h4>
+                        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            신입생의 입학 선호도(경쟁률)와 졸업생의 취업 성과는 <strong>반드시 비례하지 않음</strong>이 확인되었습니다. 브랜드 파워가 강한 거점 국립대는 신입생 모집에서 압도적이나, 실제 취업률에서는 실용/보건/해양 분야 특성화 대학들이 상위권을 독점하는 현상이 관찰됩니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Inversion Scatter/Bubble Chart -->
+                <div class="bg-white p-5 sm:p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-base font-bold text-slate-800"><i class="fa-solid fa-chart-line text-indigo-600 me-2"></i>경쟁률 vs 취업률 분포 (성과 역전 맵)</h4>
+                            <span class="text-xs text-slate-400">14개 대학 좌표</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-4">점의 크기는 입학정원 규모를 의미하며, 우상향일수록 입학과 취업 모두 우수함을 뜻합니다.</p>
+                        <div class="h-80 w-full">
+                            <canvas id="inversionScatterChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study Details -->
+                <div class="space-y-4 flex flex-col justify-between">
+                    <!-- Case 1 -->
+                    <div class="bg-white p-5 rounded-xl border-l-4 border-l-rose-500 border-y border-r border-slate-200 shadow-sm">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-bold text-rose-600 uppercase">사례 1. 입학선호 대비 취업 부진</span>
+                            <span class="px-2 py-0.5 bg-rose-50 text-rose-700 rounded text-xs font-medium">경쟁률 1위 / 취업률 중위</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mb-1">부산대학교 (경쟁률 9.0:1 ➔ 취업률 57.5%)</h5>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            지역 내 최상위 브랜드 파워로 신입생 경쟁률 1위(9.0:1)를 기록했으나, 취업률은 <strong>57.5%</strong>로 부산지역 평균(60.91%)을 하회합니다. 거점 국립대의 인문·순수학문 비중 및 높은 진학률/고시 준비 경향이 반영된 결과입니다.
+                        </p>
+                    </div>
+
+                    <!-- Case 2 -->
+                    <div class="bg-white p-5 rounded-xl border-l-4 border-l-teal-500 border-y border-r border-slate-200 shadow-sm">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-bold text-teal-600 uppercase">사례 2. 실용 특성화 대학의 성과 도약</span>
+                            <span class="px-2 py-0.5 bg-teal-50 text-teal-700 rounded text-xs font-medium">취업률 1, 2위 석권</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mb-1">국립한국해양대 (71.3%) & 부산가톨릭대 (67.4%)</h5>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-2">
+                            해양 분야 특성화 전문성의 <strong>국립한국해양대(71.3%)</strong>가 취업률 전체 1위를 기록했으며, 보건·의료 계열 중심의 <strong>부산가톨릭대(67.4%)</strong>와 <strong>고신대(66.8%)</strong>가 뒤를 이어 실용학문 중심 대학의 강점을 입증했습니다.
+                        </p>
+                    </div>
+
+                    <!-- Strategic Implication Callout -->
+                    <div class="bg-slate-900 text-slate-200 p-5 rounded-xl shadow-sm text-xs space-y-2">
+                        <div class="font-bold text-amber-400 flex items-center">
+                            <i class="fa-solid fa-lightbulb me-2"></i> 시사점 (Strategic Takeaways)
+                        </div>
+                        <p class="leading-relaxed">
+                            대형 국립대의 <strong>'브랜드 가치'</strong>와 중소형 사립대의 <strong>'직무 특성화 성과'</strong>가 서로 다른 경쟁 우위를 점하고 있습니다. 향후 학령인구 감소 시대에는 대형 대학의 취업 질적 제고와 사립대의 실무형 특성화 전략이 각기 고도화되어야 합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Key Indicator TOP 5 Rankings -->
+        <section class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
+                <div>
+                    <span class="text-xs font-bold text-teal-600 uppercase tracking-wider">SECTION 03</span>
+                    <h3 class="text-xl font-bold text-slate-800">주요 지표별 TOP 5 대학 랭킹</h3>
+                </div>
+                <span class="text-xs text-slate-500">입학정원, 신입생 경쟁률, 취업률 항목별 5위 대학</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- TOP 5 - 입학정원 -->
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="bg-slate-900 text-white p-4 flex items-center justify-between">
+                        <span class="font-bold text-sm"><i class="fa-solid fa-building-columns text-blue-400 me-2"></i>입학정원 TOP 5</span>
+                        <span class="text-xs text-slate-400">단위: 명</span>
+                    </div>
+                    <div class="divide-y divide-slate-100 text-xs">
+                        <div class="p-3.5 flex items-center justify-between bg-blue-50/50">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs">1</span>
+                                <span class="font-bold text-slate-900">부산대학교</span>
+                            </div>
+                            <span class="font-semibold text-blue-700">4,498 명</span>
+                        </div>
+                        <div class="p-3.5 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-xs">2</span>
+                                <span class="font-medium text-slate-800">동아대학교</span>
+                            </div>
+                            <span class="text-slate-700">4,159 명</span>
+                        </div>
+                        <div class="p-3.5 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-xs">3</span>
+                                <span class="font-medium text-slate-800">동의대학교</span>
+                            </div>
+                            <span class="text-slate-700">3,589 명</span>
+                        </div>
+                        <div class="p-3.5 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs">4</span>
+                                <span class="text-slate-700">국립부경대학교</span>
+                            </div>
+                            <span class="text-slate-600">3,338 명</span>
+                        </div>
+                        <div class="p-3.5 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs">5</span>
+                                <span class="text-slate-700">경성대학교</span>
+                            </div>
+                            <span class="text-slate-600">2,765 명</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOP 5 - 신입생 경쟁률 -->
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="bg-slate-900 text-white p-4 flex items-center justify-between">
+                        <span class="font-bold text-sm"><i class="fa-solid fa-fire text-rose-400 me-2"></i>신입생 경쟁률 TOP 5</span>
+                        <span class="text-xs text-slate-400">단위: :1</span>
+                    </div>
+                    <div class="divide-y divide-slate-100 text-xs">
+                        <div class="p-3.5 flex items-center justify-between bg-rose-50/50">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-rose-600 text-white font-bold flex items-center justify-center text-xs">1</span>
+                                <span class="font-bold text-slate-900">부산대학교</span>
+                            </div>
+                            <span class="font-bold text-rose-600">9.0 : 1</span>
+                        </div>
+                        <div class="p-3.5 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-xs">2</span>
+                                <span class="font-medium text-slate-800">국립부경대학교</span>
+                            </div>
+                            <span class="text-slate-700">8.9 : 1</span>
+                        </div>
+                        <div class="p-3.5 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-xs">3</span>
+                                <span class="font-medium text-slate-800">국립한국해양대</span>
+                            </div>
+                            <span class="text-slate-700">8.0 : 1</span>
+                        </div>
+                        <div class="p-3.5 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs">4</span>
+                                <span class="text-slate-700">부산가톨릭대학교</span>
+                            </div>
+                            <span class="text-slate-600">7.1 : 1</span>
+                        </div>
+                        <div class="p-3.5 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs">5</span>
+                                <span class="text-slate-700">고신대학교</span>
+                            </div>
+                            <span class="text-slate-600">6.8 : 1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOP 5 - 취업률 -->
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="bg-slate-900 text-white p-4 flex items-center justify-between">
+                        <span class="font-bold text-sm"><i class="fa-solid fa-award text-amber-400 me-2"></i>취업률 TOP 5</span>
+                        <span class="text-xs text-slate-400">단위: %</span>
+                    </div>
+                    <div class="divide-y divide-slate-100 text-xs">
+                        <div class="p-3.5 flex items-center justify-between bg-amber-50/50">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-amber-600 text-white font-bold flex items-center justify-center text-xs">1</span>
+                                <span class="font-bold text-slate-900">국립한국해양대</span>
+                            </div>
+                            <span class="font-bold text-amber-600">71.3 %</span>
+                        </div>
+                        <div class="p-3.5 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-xs">2</span>
+                                <span class="font-medium text-slate-800">부산가톨릭대학교</span>
+                            </div>
+                            <span class="text-slate-700">67.4 %</span>
+                        </div>
+                        <div class="p-3.5 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-xs">3</span>
+                                <span class="font-medium text-slate-800">고신대학교</span>
+                            </div>
+                            <span class="text-slate-700">66.8 %</span>
+                        </div>
+                        <div class="p-3.5 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs">4</span>
+                                <span class="text-slate-700">영산대 (해운대)</span>
+                            </div>
+                            <span class="text-slate-600">64.6 %</span>
+                        </div>
+                        <div class="p-3.5 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs">5</span>
+                                <span class="text-slate-700">동명대학교</span>
+                            </div>
+                            <span class="text-slate-600">61.9 %</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: National vs Private Comparison -->
+        <section class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
+                <div>
+                    <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">SECTION 04</span>
+                    <h3 class="text-xl font-bold text-slate-800">국공립 대학교 vs 사립 대학교 그룹 비교</h3>
+                </div>
+                <span class="text-xs text-slate-500">국립 4개교 vs 사립 10개교 지표 격차</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Group Metrics Cards -->
+                <div class="space-y-4">
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-500 block font-medium">국공립 대학교 (4개교)</span>
+                            <span class="text-xs text-slate-400">부산대, 국립부경대, 국립한국해양대, 부산교대</span>
+                            <div class="mt-2 text-xl font-bold text-blue-700">평균 경쟁률: 7.78 : 1</div>
+                            <div class="text-xs text-slate-600 mt-1">평균 취업률: <strong>60.85%</strong></div>
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-2xl font-black">
+                            국립
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-500 block font-medium">사립 대학교 (10개교)</span>
+                            <span class="text-xs text-slate-400">동아대, 동의대, 경성대, 부산가톨릭대 등 10개교</span>
+                            <div class="mt-2 text-xl font-bold text-emerald-700">평균 경쟁률: 5.55 : 1</div>
+                            <div class="text-xs text-slate-600 mt-1">평균 취업률: <strong>60.94%</strong></div>
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-black">
+                            사립
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-slate-100 rounded-xl text-xs text-slate-700 space-y-1.5 border border-slate-200">
+                        <div class="font-bold text-slate-900"><i class="fa-solid fa-scale-balanced me-1 text-indigo-600"></i> 그룹 간 종합 격차 분석</div>
+                        <p>• <strong>경쟁률:</strong> 국립대 그룹이 사립대 대비 <strong>2.23 포인트</strong> 우세 (브랜드 및 학비 경쟁력 반영).</p>
+                        <p>• <strong>취업률:</strong> 사립대 그룹이 <strong>60.94%</strong>로 국립대 그룹(60.85%)을 미세하게 앞섬 (실용 보건계열 견인).</p>
+                    </div>
+                </div>
+
+                <!-- Group Comparative Radar / Bar Chart -->
+                <div class="bg-white p-5 sm:p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="text-base font-bold text-slate-800 mb-2"><i class="fa-solid fa-chart-line text-amber-600 me-2"></i>국립 vs 사립 그룹 평균 지표 대조</h4>
+                    <div class="h-64 w-full">
+                        <canvas id="nationalVsPrivateChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Interactive University Data Explorer -->
+        <section id="explorer" class="space-y-6 scroll-mt-20">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
+                <div>
+                    <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">SECTION 05</span>
+                    <h3 class="text-xl font-bold text-slate-800">14개 대학 전체 주요 지표 데이터 탐색기</h3>
+                </div>
+                <span class="text-xs text-slate-500">클릭하여 대학별 상세 카드 확인 가능</span>
+            </div>
+
+            <!-- Filters & Search Bar -->
+            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-3 sm:space-y-0 sm:flex sm:items-center sm:justify-between sm:space-x-4">
+                <div class="relative flex-grow max-w-md">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="대학명 검색 (예: 부산대, 해양대, 가톨릭대)..." 
+                           class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all">
+                </div>
+
+                <div class="flex flex-wrap items-center gap-2 text-xs">
+                    <select id="typeFilter" onchange="filterTable()" class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="ALL">전체 설립구분 (국립/사립)</option>
+                        <option value="국립">국립대학교</option>
+                        <option value="사립">사립대학교</option>
+                    </select>
+
+                    <select id="scaleFilter" onchange="filterTable()" class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="ALL">전체 규모 (대/중/소형)</option>
+                        <option value="대형">대형 (3,000명 이상)</option>
+                        <option value="중형">중형 (1,000~3,000명)</option>
+                        <option value="소형">소형 (1,000명 미만)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table Container -->
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="overflow-x-auto custom-scrollbar">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="bg-slate-900 text-slate-300 border-b border-slate-800">
+                                <th class="p-3.5 font-semibold">대학명</th>
+                                <th class="p-3.5 font-semibold">구분</th>
+                                <th class="p-3.5 font-semibold">규모</th>
+                                <th class="p-3.5 font-semibold text-right cursor-pointer hover:text-white" onclick="sortTable(3)">입학정원 <i class="fa-solid fa-sort text-[10px] opacity-60"></i></th>
+                                <th class="p-3.5 font-semibold text-right cursor-pointer hover:text-white" onclick="sortTable(4)">재학생 <i class="fa-solid fa-sort text-[10px] opacity-60"></i></th>
+                                <th class="p-3.5 font-semibold text-right cursor-pointer hover:text-white" onclick="sortTable(5)">교원1인당학생 <i class="fa-solid fa-sort text-[10px] opacity-60"></i></th>
+                                <th class="p-3.5 font-semibold text-right cursor-pointer hover:text-white" onclick="sortTable(6)">신입생경쟁률 <i class="fa-solid fa-sort text-[10px] opacity-60"></i></th>
+                                <th class="p-3.5 font-semibold text-right cursor-pointer hover:text-white" onclick="sortTable(7)">취업률 <i class="fa-solid fa-sort text-[10px] opacity-60"></i></th>
+                                <th class="p-3.5 font-semibold text-center">상세보기</th>
+                            </tr>
+                        </thead>
+                        <tbody id="univTableBody" class="divide-y divide-slate-100 text-slate-700">
+                            <!-- Populated dynamically via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Comprehensive Insights & Recommendations -->
+        <section class="bg-slate-900 text-slate-300 rounded-2xl p-6 sm:p-8 space-y-4 shadow-lg border border-slate-800">
+            <h3 class="text-lg sm:text-xl font-bold text-white flex items-center">
+                <i class="fa-solid fa-compass text-amber-400 me-2.5"></i> 종합 평가 및 정책적 시사점
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm leading-relaxed">
+                <div class="space-y-2 bg-slate-800/60 p-4 rounded-xl border border-slate-700/50">
+                    <h4 class="font-bold text-blue-400 flex items-center">
+                        <i class="fa-solid fa-1 me-2"></i> 이원화 구조의 정착
+                    </h4>
+                    <p class="text-slate-300">
+                        부산지역 고등교육 생태계는 <strong>국립대의 강력한 브랜드 파워(경쟁률 7.78:1)</strong>와 <strong>사립 특성화 대학의 실무적 성과(취업률 60.94%)</strong>가 뚜렷하게 분리된 이원화 양상을 보입니다.
+                    </p>
+                </div>
+                <div class="space-y-2 bg-slate-800/60 p-4 rounded-xl border border-slate-700/50">
+                    <h4 class="font-bold text-emerald-400 flex items-center">
+                        <i class="fa-solid fa-2 me-2"></i> 학령인구 감소기 대학 생존 전략
+                    </h4>
+                    <p class="text-slate-300">
+                        브랜드 파워가 약한 중소형 대학은 해양, 보건, 실용기술 등 **취업 성과 중심의 체질 개선**이 필수적이며, 거점 대형 대학은 단순 취업률 제고를 넘어 취업의 **질적 역량 고도화**가 시급합니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- University Detail Modal -->
+    <div id="univModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative space-y-4 border border-slate-100">
+            <button onclick="closeModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="modalContent">
+                <!-- Dynamically filled -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-slate-500 text-xs mt-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>부산지역 일반 대학교 주요 지표 및 경쟁력 분석 보고서 (2024–2026)</p>
+            <p class="mt-1 text-slate-600">Data Source: Source Context (2025 Standard dataset) | 14 Universities Evaluated</p>
+        </div>
+    </footer>
+
+    <script>
+        // Complete dataset for 14 Universities in Busan based on source context
+        const univData = [
+            { id: 1, name: "부산대학교", type: "국립", scale: "대형", quota: 4498, enrolled: 19900, facultyRatio: 13.80, compRate: 9.0, empRate: 57.5, note: "지역 내 경쟁률 1위, 최상위 거점 국립대" },
+            { id: 2, name: "동아대학교", type: "사립", scale: "대형", quota: 4159, enrolled: 17634, facultyRatio: 24.66, compRate: 6.2, empRate: 59.8, note: "대형 사립 거점대학, 재학생수 상위" },
+            { id: 3, name: "동의대학교", type: "사립", scale: "대형", quota: 3589, enrolled: 15100, facultyRatio: 26.00, compRate: 5.8, empRate: 58.2, note: "대형 종합 사립대학교" },
+            { id: 4, name: "국립부경대학교", type: "국립", scale: "대형", quota: 3338, enrolled: 14200, facultyRatio: 24.02, compRate: 8.9, empRate: 61.2, note: "경쟁률 2위(8.9:1) 기록 국립대" },
+            { id: 5, name: "경성대학교", type: "사립", scale: "중형", quota: 2765, enrolled: 11200, facultyRatio: 34.62, compRate: 5.9, empRate: 59.1, note: "중형 종합 사립대" },
+            { id: 6, name: "동서대학교", type: "사립", scale: "중형", quota: 2094, enrolled: 8900, facultyRatio: 26.82, compRate: 5.4, empRate: 60.5, note: "IT/디자인계열 특성화" },
+            { id: 7, name: "신라대학교", type: "사립", scale: "중형", quota: 1640, enrolled: 6800, facultyRatio: 25.28, compRate: 5.1, empRate: 58.9, note: "사범계열 및 유아교육 강점" },
+            { id: 8, name: "부산외국어대학교", type: "사립", scale: "중형", quota: 1470, enrolled: 6100, facultyRatio: 30.24, compRate: 5.3, empRate: 60.1, note: "글로벌 언어·통상 특성화" },
+            { id: 9, name: "동명대학교", type: "사립", scale: "중형", quota: 1424, enrolled: 5900, facultyRatio: 29.52, compRate: 5.6, empRate: 61.9, note: "취업률 TOP 5 진입 (61.9%)" },
+            { id: 10, name: "국립한국해양대학교", type: "국립", scale: "중형", quota: 1372, enrolled: 6325, facultyRatio: 22.43, compRate: 8.0, empRate: 71.3, note: "부산 전체 취업률 1위(71.3%) 특성화 국립대" },
+            { id: 11, name: "고신대학교", type: "사립", scale: "소형", quota: 753, enrolled: 3200, facultyRatio: 12.95, compRate: 6.8, empRate: 66.8, note: "밀도 최고 교원 비율(12.95명), 취업률 3위(66.8%)" },
+            { id: 12, name: "부산가톨릭대학교", type: "사립", scale: "소형", quota: 705, enrolled: 3447, facultyRatio: 28.04, compRate: 7.1, empRate: 67.4, note: "취업률 2위(67.4%), 정원대비 재학생비율 1위(4.89배)" },
+            { id: 13, name: "영산대학교(해운대)", type: "사립", scale: "소형", quota: 625, enrolled: 2975, facultyRatio: 30.04, compRate: 5.7, empRate: 64.6, note: "취업률 4위(64.6%), 정원대비 재학생비율 2위(4.76배)" },
+            { id: 14, name: "부산교육대학교", type: "국립", scale: "소형", quota: 313, enrolled: 1325, facultyRatio: 17.54, compRate: 5.2, empRate: 53.4, note: "초등교원 양성 전문 국립대" }
+        ];
+
+        let currentData = [...univData];
+
+        function renderTable(data) {
+            const tbody = document.getElementById('univTableBody');
+            tbody.innerHTML = '';
+
+            data.forEach((u) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 transition-colors cursor-pointer";
+                tr.onclick = () => openModal(u.id);
+
+                const scaleBadgeClass = u.scale === '대형' ? 'bg-rose-100 text-rose-800' : u.scale === '중형' ? 'bg-amber-100 text-amber-800' : 'bg-teal-100 text-teal-800';
+                const typeBadgeClass = u.type === '국립' ? 'bg-blue-100 text-blue-800' : 'bg-slate-100 text-slate-700';
+
+                tr.innerHTML = `
+                    <td class="p-3.5 font-bold text-slate-900">${u.name}</td>
+                    <td class="p-3.5"><span class="px-2 py-0.5 rounded text-[11px] font-semibold ${typeBadgeClass}">${u.type}</span></td>
+                    <td class="p-3.5"><span class="px-2 py-0.5 rounded text-[11px] font-semibold ${scaleBadgeClass}">${u.scale}</span></td>
+                    <td class="p-3.5 text-right font-medium">${u.quota.toLocaleString()}명</td>
+                    <td class="p-3.5 text-right">${u.enrolled.toLocaleString()}명</td>
+                    <td class="p-3.5 text-right font-medium ${u.facultyRatio < 15 ? 'text-teal-600 font-bold' : ''}">${u.facultyRatio}명</td>
+                    <td class="p-3.5 text-right font-semibold ${u.compRate >= 8.0 ? 'text-rose-600' : ''}">${u.compRate} : 1</td>
+                    <td class="p-3.5 text-right font-semibold ${u.empRate >= 65.0 ? 'text-amber-600' : ''}">${u.empRate}%</td>
+                    <td class="p-3.5 text-center"><i class="fa-solid fa-circle-info text-blue-500 hover:text-blue-700"></i></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function filterTable() {
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            const typeVal = document.getElementById('typeFilter').value;
+            const scaleVal = document.getElementById('scaleFilter').value;
+
+            currentData = univData.filter(u => {
+                const matchesSearch = u.name.toLowerCase().includes(searchVal);
+                const matchesType = typeVal === 'ALL' || u.type === typeVal;
+                const matchesScale = scaleVal === 'ALL' || u.scale === scaleVal;
+                return matchesSearch && matchesType && matchesScale;
+            });
+
+            renderTable(currentData);
+        }
+
+        let sortDirection = false;
+        function sortTable(colIndex) {
+            sortDirection = !sortDirection;
+            currentData.sort((a, b) => {
+                let valA, valB;
+                if (colIndex === 3) { valA = a.quota; valB = b.quota; }
+                else if (colIndex === 4) { valA = a.enrolled; valB = b.enrolled; }
+                else if (colIndex === 5) { valA = a.facultyRatio; valB = b.facultyRatio; }
+                else if (colIndex === 6) { valA = a.compRate; valB = b.compRate; }
+                else if (colIndex === 7) { valA = a.empRate; valB = b.empRate; }
+
+                return sortDirection ? valA - valB : valB - valA;
+            });
+            renderTable(currentData);
+        }
+
+        function openModal(id) {
+            const u = univData.find(item => item.id === id);
+            if (!u) return;
+
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+                <div class="flex items-center space-x-3 border-b border-slate-100 pb-3">
+                    <div class="p-3 bg-blue-50 text-blue-600 rounded-xl">
+                        <i class="fa-solid fa-graduation-cap text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">${u.name}</h3>
+                        <p class="text-xs text-slate-500">${u.type}대학교 • ${u.scale} 규모</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 text-xs pt-2">
+                    <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                        <span class="text-slate-400 block text-[11px]">입학정원</span>
+                        <span class="font-bold text-slate-800 text-sm">${u.quota.toLocaleString()} 명</span>
+                    </div>
+                    <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                        <span class="text-slate-400 block text-[11px]">재학생 수</span>
+                        <span class="font-bold text-slate-800 text-sm">${u.enrolled.toLocaleString()} 명</span>
+                    </div>
+                    <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                        <span class="text-slate-400 block text-[11px]">교원 1인당 학생수</span>
+                        <span class="font-bold text-slate-800 text-sm">${u.facultyRatio} 명</span>
+                    </div>
+                    <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                        <span class="text-slate-400 block text-[11px]">신입생 경쟁률</span>
+                        <span class="font-bold text-rose-600 text-sm">${u.compRate} : 1</span>
+                    </div>
+                    <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100 col-span-2">
+                        <span class="text-slate-400 block text-[11px]">취업률 성과</span>
+                        <span class="font-bold text-amber-600 text-base">${u.empRate} %</span>
+                    </div>
+                </div>
+
+                <div class="p-3 bg-blue-50/70 text-blue-900 rounded-xl text-xs space-y-1 border border-blue-100">
+                    <div class="font-bold flex items-center"><i class="fa-solid fa-star me-1 text-amber-500"></i> 특이사항 및 요약</div>
+                    <p>${u.note}</p>
+                </div>
+            `;
+
+            document.getElementById('univModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('univModal').classList.add('hidden');
+        }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        window.onload = function() {
+            renderTable(univData);
+
+            // Chart 1: Scale & Faculty Ratio (Bar Chart)
+            const scaleCtx = document.getElementById('scaleFacultyChart').getContext('2d');
+            new Chart(scaleCtx, {
+                type: 'bar',
+                data: {
+                    labels: univData.map(u => u.name),
+                    datasets: [
+                        {
+                            label: '입학정원 (명)',
+                            data: univData.map(u => u.quota),
+                            backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                            borderColor: '#3b82f6',
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '교원 1인당 학생수 (명)',
+                            data: univData.map(u => u.facultyRatio),
+                            type: 'line',
+                            borderColor: '#e11d48',
+                            backgroundColor: '#e11d48',
+                            borderWidth: 2,
+                            pointRadius: 4,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { ticks: { font: { size: 10 } } },
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            title: { display: true, text: '입학정원 (명)', font: { size: 10 } }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            grid: { drawOnChartArea: false },
+                            title: { display: true, text: '교원 1인당 학생수 (명)', font: { size: 10 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { font: { size: 11 } } }
+                    }
+                }
+            });
+
+            // Chart 2: Data Inversion Scatter Chart (Competition vs Employment)
+            const scatterCtx = document.getElementById('inversionScatterChart').getContext('2d');
+            const scatterData = univData.map(u => ({
+                x: u.compRate,
+                y: u.empRate,
+                r: Math.max(6, Math.sqrt(u.quota) / 2.5), // bubble radius based on scale
+                name: u.name
+            }));
+
+            new Chart(scatterCtx, {
+                type: 'bubble',
+                data: {
+                    datasets: [{
+                        label: '부산지역 대학 (경쟁률 vs 취업률)',
+                        data: scatterData,
+                        backgroundColor: scatterData.map(d => {
+                            if (d.name === '부산대학교') return 'rgba(225, 29, 72, 0.8)';
+                            if (d.name === '국립한국해양대학교' || d.name === '부산가톨릭대학교') return 'rgba(13, 148, 136, 0.8)';
+                            return 'rgba(79, 70, 229, 0.6)';
+                        })
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            title: { display: true, text: '신입생 경쟁률 (:1)', font: { size: 11, weight: 'bold' } },
+                            min: 4.5,
+                            max: 9.5
+                        },
+                        y: {
+                            title: { display: true, text: '취업률 (%)', font: { size: 11, weight: 'bold' } },
+                            min: 50,
+                            max: 75
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const raw = context.raw;
+                                    return `${raw.name}: 경쟁률 ${raw.x}:1 / 취업률 ${raw.y}%`;
+                                }
+                            }
+                        },
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            // Chart 3: National vs Private Group Comparison (Bar Chart)
+            const natVsPrivCtx = document.getElementById('nationalVsPrivateChart').getContext('2d');
+            new Chart(natVsPrivCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['신입생 평균 경쟁률 (:1)', '평균 취업률 (%)'],
+                    datasets: [
+                        {
+                            label: '국공립 대학교 (4개교)',
+                            data: [7.78, 60.85],
+                            backgroundColor: 'rgba(29, 78, 216, 0.8)'
+                        },
+                        {
+                            label: '사립 대학교 (10개교)',
+                            data: [5.55, 60.94],
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        };
+    </script>
+</body>
+</html>
