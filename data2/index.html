@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025년 자전거 가해운전자 교통사고 현황 및 위험 요인 심층 분석 보고서</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-slate-900 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <a href="../index.html" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-slate-100 bg-slate-800 hover:bg-slate-700 active:bg-slate-900 rounded-lg border border-slate-700 transition duration-150 ease-in-out shadow-sm gap-2">
+                    <i class="fa-solid fa-house text-emerald-400"></i>
+                    <span>홈으로</span>
+                </a>
+                <span class="text-slate-600">|</span>
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-person-biking text-emerald-400 text-xl"></i>
+                    <h1 class="text-base sm:text-lg font-bold tracking-tight text-slate-100">2025 자전거 교통사고 분석 리포트</h1>
+                </div>
+            </div>
+            <div class="hidden sm:block text-xs text-slate-400 bg-slate-800/80 px-3 py-1.5 rounded-full border border-slate-700">
+                <i class="fa-regular fa-calendar-check mr-1 text-emerald-400"></i> 데이터 기준: 2025년 연간
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Header -->
+    <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-950 text-white py-10 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-4">
+                <i class="fa-solid fa-chart-line"></i> 데이터 사이언스 기반 심층 분석
+            </div>
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">
+                2025년 자전거 가해운전자 교통사고 현황 및 위험 요인 심층 분석
+            </h1>
+            <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
+                2025년 자전거 가해 사고의 월별·요일별 패턴과 치사율 위험 지표를 정밀 분석하여, 실질적인 인명 피해 감소를 위한 맞춤형 안전 정책 방향성을 제시합니다.
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+        <!-- 1. KPI Overview Section -->
+        <section>
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-triangle-exclamation text-amber-500"></i>
+                    1. 2025년 자전거 교통사고 총괄 현황
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- KPI Card 1 -->
+                <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-semibold text-slate-500">전체 사고 건수</span>
+                        <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-car-crash"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-extrabold text-slate-900 mb-1">5,235<span class="text-lg font-normal text-slate-500 ml-1">건</span></div>
+                    <p class="text-xs text-slate-500">연간 자전거 가해 사고 총 발생 수</p>
+                </div>
+
+                <!-- KPI Card 2 -->
+                <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-rose-500/5 rounded-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-semibold text-slate-500">전체 사망자 수</span>
+                        <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-skull"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-extrabold text-rose-600 mb-1">85<span class="text-lg font-normal text-slate-500 ml-1">명</span></div>
+                    <p class="text-xs text-slate-500">평균 치사율 약 1.62%</p>
+                </div>
+
+                <!-- KPI Card 3 -->
+                <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-semibold text-slate-500">전체 부상자 수</span>
+                        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-user-injured"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-extrabold text-slate-900 mb-1">5,655<span class="text-lg font-normal text-slate-500 ml-1">명</span></div>
+                    <p class="text-xs text-slate-500">인명 피해 부상 집계</p>
+                </div>
+
+                <!-- KPI Card 4 -->
+                <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group border-emerald-200 bg-emerald-50/30">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/10 rounded-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-semibold text-emerald-800">사고 1건당 부상자 비율</span>
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-extrabold text-emerald-700 mb-1">약 1.08<span class="text-lg font-normal text-emerald-600 ml-1">명</span></div>
+                    <p class="text-xs text-emerald-700 font-medium">사고 시 평균 1명 이상 부상 발생</p>
+                </div>
+            </div>
+
+            <!-- Insight Banner -->
+            <div class="mt-4 p-4 rounded-xl bg-slate-900 text-slate-200 flex items-start gap-3 text-sm leading-relaxed shadow-sm">
+                <i class="fa-solid fa-circle-info text-emerald-400 text-lg mt-0.5"></i>
+                <div>
+                    <strong class="text-white font-semibold">데이터 사이언스 인사이트:</strong> 사고 1건당 부상자 비율이 <span class="text-emerald-400 font-bold">1.08명</span>이라는 점은 자전거 사고 발생 시 운전자 본인은 물론 보행자나 타 차량 운전자까지 포함하여 실질적인 인명 피해로 직결되는 **고위험군 사고**임을 시사합니다.
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Monthly Trend & Risk Analysis Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 space-y-6">
+                <div class="glass-card rounded-2xl p-6 shadow-sm">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-100 gap-2">
+                        <div>
+                            <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                                <i class="fa-solid fa-chart-area text-emerald-600"></i>
+                                2. 월별 사고 발생 추세 (계절적 변동)
+                            </h2>
+                            <p class="text-xs text-slate-500 mt-1">기온 상승기에 접어들며 발생하는 사고 급증 현상 분석</p>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-semibold">
+                            <span class="inline-flex items-center gap-1 text-slate-600"><span class="w-3 h-3 bg-emerald-500 rounded-full inline-block"></span> 사고건수</span>
+                        </div>
+                    </div>
+
+                    <!-- Chart Container -->
+                    <div class="relative h-72 sm:h-80 w-full mt-4">
+                        <canvas id="monthlyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Analysis Details -->
+            <div class="space-y-4 flex flex-col justify-between">
+                <div class="glass-card rounded-2xl p-6 shadow-sm border-l-4 border-l-amber-500 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 text-amber-600 font-bold text-sm uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-temperature-arrow-up"></i> 주요 분석 포인트
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">계절적 전환기 위험 (Transition Risk)</h3>
+                        
+                        <div class="space-y-4 text-sm text-slate-600">
+                            <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-100">
+                                <span class="font-bold text-amber-900 block mb-1">2월 → 4월 폭증 (+175.5%)</span>
+                                연중 최저인 2월(184건) 대비 기온이 오르는 3월(362건)과 4월(507건) 사고가 급증합니다. 야외활동 증가와 안전의식 해이가 주요 원인입니다.
+                            </div>
+
+                            <div class="p-3 bg-slate-100/80 rounded-xl border border-slate-200">
+                                <span class="font-bold text-slate-900 block mb-1">6월~9월 고수위 유지 구간</span>
+                                매월 550건 이상의 사고가 지속되며 연간 최다 발생 구간을 형성합니다. 특히 <strong class="text-rose-600">6월(605건)</strong>은 연중 최다 발생 달입니다.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-500 flex items-center justify-between">
+                        <span>최저: 2월 (184건)</span>
+                        <span class="font-bold text-rose-600">최대: 6월 (605건)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Day of Week Analysis Section -->
+        <section class="glass-card rounded-2xl p-6 shadow-sm">
+            <div class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-slate-100 gap-4 mb-6">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-days text-indigo-600"></i>
+                        3. 요일별 사고 발생 특성 분석
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-1">주중 일상 이동 및 출퇴근/등하교 시기 사고 집중 경향</p>
+                </div>
+                <!-- Weekday vs Weekend Pill -->
+                <div class="flex items-center gap-3 bg-slate-100 p-1.5 rounded-xl text-xs font-semibold">
+                    <div class="px-3 py-1.5 bg-white rounded-lg shadow-sm text-indigo-700 flex items-center gap-1.5">
+                        <i class="fa-solid fa-briefcase"></i> 주중 평균: <strong>784.6건</strong>
+                    </div>
+                    <div class="px-3 py-1.5 text-slate-600 flex items-center gap-1.5">
+                        <i class="fa-solid fa-tree"></i> 주말 평균: <strong>656.0건</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                <!-- Chart -->
+                <div class="lg:col-span-2 relative h-72 w-full">
+                    <canvas id="weekdayChart"></canvas>
+                </div>
+
+                <!-- Insights List -->
+                <div class="space-y-3">
+                    <div class="p-4 rounded-xl bg-indigo-50/50 border border-indigo-100">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="font-bold text-indigo-900 text-sm">연간 최다 사고 요일</span>
+                            <span class="px-2 py-0.5 bg-indigo-600 text-white rounded text-xs font-bold">1위</span>
+                        </div>
+                        <div class="text-2xl font-black text-indigo-700 mb-1">금요일 <span class="text-lg font-bold text-slate-700">(831건)</span></div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            주중 출퇴근/등하교 수요와 주말을 앞둔 레저 활동 유동인구가 교차하며 사고 위험이 극대화되는 시점입니다.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-2 text-slate-600">
+                        <div class="flex justify-between items-center border-b border-slate-200/60 pb-1.5">
+                            <span>수요일 (2위)</span>
+                            <span class="font-semibold text-slate-800">800건</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-slate-200/60 pb-1.5">
+                            <span>월요일 (3위)</span>
+                            <span class="font-semibold text-slate-800">785건</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-slate-200/60 pb-1.5">
+                            <span>화요일 (4위)</span>
+                            <span class="font-semibold text-slate-800">777건</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span>주말 (토/일)</span>
+                            <span class="font-semibold text-slate-500">666건 / 646건</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Fatality & Severity Analysis Section -->
+        <section class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-skull-crossbones text-rose-600"></i>
+                        4. 사고 심각도 및 치사율 위험도 분석
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-1">발생 빈도(사고 건수)와 치명성(사망자 수)의 불일치 현상 규명</p>
+                </div>
+            </div>
+
+            <!-- Dual Axis Chart (Cases vs Fatality Rate) -->
+            <div class="glass-card rounded-2xl p-6 shadow-sm">
+                <div class="relative h-80 w-full">
+                    <canvas id="fatalityChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Deep Dive Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Highlight Card 1: August Peak -->
+                <div class="glass-card rounded-2xl p-6 shadow-sm border-t-4 border-t-rose-500 relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-100">
+                            최대 사망 위험 시기
+                        </span>
+                        <span class="text-2xl font-black text-rose-600">8월</span>
+                    </div>
+                    <h3 class="text-base font-bold text-slate-900 mb-2">사망자 12명 (치사율 2.15%)</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                        사고 건수는 6월(605건)이 가장 많지만, <strong>사망자는 8월(12명)에 집중</strong>되었습니다. 6월 치사율(1.49%) 대비 8월 치사율(2.15%)이 급상승하며 폭염 및 휴가철 유동 인구 등 기상/환경 요인이 사고의 강도를 높였음을 나타냅니다.
+                    </p>
+                    <div class="bg-rose-50/60 p-3 rounded-xl border border-rose-100 flex items-center justify-between text-xs font-semibold text-rose-900">
+                        <span>6월 치사율: 1.49%</span>
+                        <i class="fa-solid fa-arrow-right text-rose-400"></i>
+                        <span class="text-rose-700 font-bold">8월 치사율: 2.15% (+0.66%p)</span>
+                    </div>
+                </div>
+
+                <!-- Highlight Card 2: November Potential Hazard -->
+                <div class="glass-card rounded-2xl p-6 shadow-sm border-t-4 border-t-amber-500 relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-100">
+                            고치사율 잠재 위험 구간
+                        </span>
+                        <span class="text-2xl font-black text-amber-600">11월</span>
+                    </div>
+                    <h3 class="text-base font-bold text-slate-900 mb-2">사고 감소에도 사망자 유지 (치사율 1.94%)</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                        11월은 사고 건수(413건)가 전월 대비 감소함에도 불고하고 사망자 수(8명)는 10월과 동일하게 유지되었습니다. <strong>치사율 약 1.94%</strong>로 산출되어 사고 빈도가 낮아지더라도 사고당 치명적 피해 가능성은 지속됩니다.
+                    </p>
+                    <div class="bg-amber-50/60 p-3 rounded-xl border border-amber-100 flex items-center justify-between text-xs font-semibold text-amber-900">
+                        <span>11월 사고 건수: 413건</span>
+                        <span class="text-amber-700 font-bold">사망자 8명 (고치사율 유지)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Policy Conclusion Section -->
+        <section class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-800 space-y-6">
+            <div class="border-b border-slate-800 pb-4 flex items-center justify-between">
+                <div>
+                    <span class="text-emerald-400 text-xs font-bold uppercase tracking-wider">Action Plan</span>
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-lightbulb text-amber-400"></i>
+                        5. 결론 및 정책적 제언
+                    </h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Policy 1 -->
+                <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                        1
+                    </div>
+                    <h3 class="font-bold text-white text-base">금요일 집중 안전 관리</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        연중 사고 밀도가 가장 높은 금요일(831건)을 대상으로 주요 출퇴근 및 레저 경로에 순찰 강화, 단속 인프라 확충, 이용자 대상 선제적 안전 계도를 집중 시행해야 합니다.
+                    </p>
+                </div>
+
+                <!-- Policy 2 -->
+                <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-lg">
+                        2
+                    </div>
+                    <h3 class="font-bold text-white text-base">계절 전환기(3~4월) 캠페인</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        2월 대비 사고가 175.5% 폭증하는 3~4월을 대비해 3월 초순부터 '봄철 자전거 안전점검 및 안전수칙 준수' 집중 홍보 캠페인과 장비 점검 교육을 펼쳐야 합니다.
+                    </p>
+                </div>
+
+                <!-- Policy 3 -->
+                <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center font-bold text-lg">
+                        3
+                    </div>
+                    <h3 class="font-bold text-white text-base">치사율 저감 맞춤 전략</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        사고 빈도가 높은 6월에는 '발생 억제' 대책을, 치사율이 높은 8월(2.15%)과 11월(1.94%)에는 '보호장구(헬멧) 착용 강력 계도' 등 피해 경감 중심 전략을 차별화하여 적용해야 합니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-500 border-t border-slate-800 py-6 text-center text-xs mt-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>2025 자전거 가해운전자 교통사고 현황 분석 보고서</p>
+            <a href="../index.html" class="hover:text-slate-300 transition-colors flex items-center gap-1">
+                <i class="fa-solid fa-arrow-left text-xs"></i> 메인 페이지로 돌아가기
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Data Definitions
+        const monthlyLabels = ['01월', '02월', '03월', '04월', '05월', '06월', '07월', '08월', '09월', '10월', '11월', '12월'];
+        const monthlyAccidents = [204, 184, 362, 507, 549, 605, 577, 558, 556, 447, 413, 273];
+        const monthlyFatalities = [5, 3, 8, 7, 3, 9, 9, 12, 8, 8, 8, 5];
+        
+        // Calculate Fatality Rate (%) per month
+        const fatalityRates = monthlyAccidents.map((acc, idx) => {
+            return ((monthlyFatalities[idx] / acc) * 100).toFixed(2);
+        });
+
+        const weekdayLabels = ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'];
+        const weekdayData = [785, 777, 800, 730, 831, 666, 646];
+
+        // Chart Global Config
+        Chart.defaults.font.family = "'Pretendard', sans-serif";
+        Chart.defaults.color = '#64748b';
+
+        // 1. Monthly Chart (Bar)
+        const ctxMonthly = document.getElementById('monthlyChart').getContext('2d');
+        new Chart(ctxMonthly, {
+            type: 'bar',
+            data: {
+                labels: monthlyLabels,
+                datasets: [{
+                    label: '사고 건수(건)',
+                    data: monthlyAccidents,
+                    backgroundColor: monthlyAccidents.map(val => val === 605 ? '#ef4444' : (val >= 500 ? '#10b981' : '#cbd5e1')),
+                    borderRadius: 8,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#0f172a',
+                        padding: 12,
+                        cornerRadius: 8,
+                        callbacks: {
+                            label: function(context) {
+                                return ` 사고 건수: ${context.parsed.y}건`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { 
+                        grid: { color: '#f1f5f9' },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // 2. Weekday Chart (Horizontal Bar or Vertical Bar with highlighting Friday)
+        const ctxWeekday = document.getElementById('weekdayChart').getContext('2d');
+        new Chart(ctxWeekday, {
+            type: 'bar',
+            data: {
+                labels: weekdayLabels,
+                datasets: [{
+                    label: '사고 건수(건)',
+                    data: weekdayData,
+                    backgroundColor: weekdayData.map(val => val === 831 ? '#6366f1' : '#e2e8f0'),
+                    hoverBackgroundColor: weekdayData.map(val => val === 831 ? '#4f46e5' : '#cbd5e1'),
+                    borderRadius: 8,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#0f172a',
+                        padding: 12,
+                        cornerRadius: 8,
+                        callbacks: {
+                            label: function(context) {
+                                return ` 요일 사고건수: ${context.parsed.y}건`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { 
+                        grid: { color: '#f1f5f9' },
+                        min: 500
+                    }
+                }
+            }
+        });
+
+        // 3. Dual Axis Fatality Rate Chart
+        const ctxFatality = document.getElementById('fatalityChart').getContext('2d');
+        new Chart(ctxFatality, {
+            type: 'bar',
+            data: {
+                labels: monthlyLabels,
+                datasets: [
+                    {
+                        type: 'line',
+                        label: '치사율 (%)',
+                        data: fatalityRates,
+                        borderColor: '#f43f5e',
+                        backgroundColor: '#f43f5e',
+                        borderWidth: 3,
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                        yAxisID: 'y1',
+                        tension: 0.3
+                    },
+                    {
+                        type: 'bar',
+                        label: '사망자 수 (명)',
+                        data: monthlyFatalities,
+                        backgroundColor: '#fecdd3',
+                        hoverBackgroundColor: '#fda4af',
+                        borderRadius: 6,
+                        yAxisID: 'y',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { boxWidth: 12, usePointStyle: true }
+                    },
+                    tooltip: {
+                        backgroundColor: '#0f172a',
+                        padding: 12,
+                        cornerRadius: 8,
+                    }
+                },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: { display: true, text: '사망자 수 (명)' },
+                        grid: { color: '#f1f5f9' },
+                        beginAtZero: true
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: { display: true, text: '치사율 (%)' },
+                        grid: { drawOnChartArea: false },
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) { return value + '%'; }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
